@@ -1,0 +1,21 @@
+﻿<h1>Posts</h1>
+<ul data-template="post-template" data-bind="source: posts">
+</ul>
+
+<script type="text/x-kendo-template" id="post-template">
+    <div>
+        <strong>Title: </strong>
+        <span>#= title # </span>
+        <strong>Creator: </strong>
+        <span>#= creator # </span>
+        <span>Created on: </span>
+        <span>#= createdOn # </span>
+        <span>Number of comments: </span>
+        <span>#= numberComments # </span>
+        <strong>Tags: </strong>
+        # for (var i = 0; i < tags.length; i++) { #
+        <span>#= tags[i] # </span>
+        # } #
+        <a href="index.html\#/post/#= id #">Show</a>
+    </div>
+</script>

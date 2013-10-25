@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<script src="../Scripts/class.js"></script>
+	<script src="../Scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="content">
+    <label for="fname">First Name: </label>
+    <input type="text" id="fname" />
+    <label for="lname">Second Name: </label>
+    <input type="text" id="lname" />
+    <label for="age">Age: </label>
+    <input type="text" id="age" />
+	<a href="#" id="send" onclick="onSendBottonClick()">Send</a>
+    <a href="#" id="calc" onclick="onCalcBottonClick()">Calc</a>
+	<div id="result"></div>
+    </div>
+	<script>
+	    var Person = Class.create({
+	        init: function (fname, lname, age) {
+	            this.fname = fname;
+	            this.lname = lname;
+	            this.age = age;
+	        },
+	        toString: function () {
+	            return this.fname + " " + this.lname;
+	        }
+	    });
+
+	    var students = [];
+
+	    function onSendBottonClick() {
+
+	        var firstName = document.getElementById("fname").value;
+	        var lastName = document.getElementById("lname").value;
+	        var age = document.getElementById("age").value;
+	        var person = new Person(firstName, lastName, age);
+	        students.push(person);
+	    }
+
+	    function onCalcBottonClick() {
+
+	        var selected = _.filter(students, function (item) {
+	            return item.age >= 18 && item.age <= 24;
+	        });
+
+	        selected = _.sortBy(selected, function (item) {
+	            return item.age;
+	        });
+
+	        _.each(selected, function (item) {
+	            console.log(item.toString())
+	        });
+	    }
+	</script>
+</body>
+</html>

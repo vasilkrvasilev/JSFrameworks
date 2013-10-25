@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<script src="../Scripts/class.js"></script>
+	<script src="../Scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="content">
+    <label for="species">Species : </label>
+    <input type="text" id="species" />
+    <label for="animal">Animal: </label>
+    <input type="text" id="animal" />
+    <label for="legs">Legs: </label>
+    <input type="text" id="legs" />
+	<a href="#" id="send" onclick="onSendBottonClick()">Send</a>
+    <a href="#" id="calc" onclick="onCalcBottonClick()">Calc</a>
+	<div id="result"></div>
+    </div>
+	<script>
+	    var Animal = Class.create({
+	        init: function (species, animal, legs) {
+	            this.species = species;
+	            this.animal = animal;
+	            this.legs = legs;
+	        },
+	        toString: function () {
+	            return this.species + " " + this.animal + " " + this.legs;
+	        }
+	    });
+
+	    var animals = [];
+
+	    function onSendBottonClick() {
+
+	        var species = document.getElementById("species").value;
+	        var animal = document.getElementById("animal").value;
+	        var legs = document.getElementById("legs").value;
+	        var newAnimal = new Animal(species, animal, legs);
+	        animals.push(newAnimal);
+	    }
+
+	    function onCalcBottonClick() {
+
+	        var grouped = _.chain(animals)
+                .sortBy(function (item) {
+	                return item.legs;
+                })
+                .groupBy('species')
+                .each(function (item) {
+                    console.log(item.toString());
+                });
+	    }
+	</script>
+</body>
+</html>

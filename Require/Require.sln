@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Require", "Require\Require.csproj", "{9ECF5D7A-9B42-4743-8E6A-5087EC3D3387}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox", "ComboBox\ComboBox.csproj", "{D6F1A017-A8D8-4607-8402-5D29C9A344BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students.Services", "Students.Services\Students.Services.csproj", "{2B8B1755-EDCC-4394-AA63-6FB2AF302BE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ECF5D7A-9B42-4743-8E6A-5087EC3D3387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECF5D7A-9B42-4743-8E6A-5087EC3D3387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECF5D7A-9B42-4743-8E6A-5087EC3D3387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECF5D7A-9B42-4743-8E6A-5087EC3D3387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6F1A017-A8D8-4607-8402-5D29C9A344BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F1A017-A8D8-4607-8402-5D29C9A344BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F1A017-A8D8-4607-8402-5D29C9A344BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F1A017-A8D8-4607-8402-5D29C9A344BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B8B1755-EDCC-4394-AA63-6FB2AF302BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8B1755-EDCC-4394-AA63-6FB2AF302BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8B1755-EDCC-4394-AA63-6FB2AF302BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8B1755-EDCC-4394-AA63-6FB2AF302BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+﻿<h1>Lists</h1>
+<ul data-template="list-template" data-bind="source: lists">
+</ul>
+
+<script type="text/x-kendo-template" id="list-template">
+    <div>
+        <strong>Title: </strong>
+        <span>#= title # </span>
+        <a href="index.html\#/todo-lists/#= id #">Show tasks</a>
+    </div>
+</script>

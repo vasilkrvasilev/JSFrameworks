@@ -1,0 +1,21 @@
+﻿<h1>Bank</h1>
+<ul data-template="accountLogs-template" data-bind="source: account">
+</ul>
+
+<script type="text/x-kendo-template" id="accountLogs-template">
+    <div>
+        <div>
+            <strong>Balance: </strong>
+            <span>#= balance # </span>
+        </div>
+        <div>
+            <strong>Logs: </strong>
+            # for (var i = 0; i < logs.length; i++) { #
+                <strong>Amount: </strong>
+                <span>#= logs[i].amount # </span>
+                <strong>Date: </strong>
+                <span>#= logs[i].date # </span>
+            # } #
+        </div>
+    </div>
+</script>

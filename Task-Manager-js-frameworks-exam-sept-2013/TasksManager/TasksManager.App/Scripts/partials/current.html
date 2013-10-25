@@ -1,0 +1,20 @@
+﻿<h1>Current Appointments</h1>
+<ul data-template="appointment-template" data-bind="source: appointments">
+</ul>
+
+<script type="text/x-kendo-template" id="appointment-template">
+    <div>
+        <strong>Subject: </strong>
+        <span>#= subject # </span>
+        <strong>Description: </strong>
+        <span>#= description # </span>
+        <span>Created at: </span>
+        <span>#= createdAt # </span>
+        <span>Date: </span>
+        <strong>#= appointmentDate # </strong>
+        <span>Duration: </span>
+        <span>#= duration # </span>
+        <span>State: </span>
+        <strong>#= state # </strong>
+    </div>
+</script>

@@ -1,0 +1,4 @@
+Works in Internet Explorer
+if you use EnableCorsAttribute("*", "*", "*")
+you could use it also in the other
+(uncomment the last row in WebApiConfig.cs

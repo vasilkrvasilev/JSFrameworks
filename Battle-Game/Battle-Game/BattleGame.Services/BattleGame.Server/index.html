@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+    <!--<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>-->
+	<script src="Scripts/libs/require.js" data-main="Scripts/app"></script>
+</head>
+<body>
+
+    <script type="x-mustache-template" id="register-login-template">
+        <div class="register-login">
+            <div>
+                <label for="username">Username: </label>
+                <input type="text" id="username" />
+            </div>
+            <div>
+                <label for="nickname">Nickname: </label>
+                <input type="text" id="nickname" />
+            </div>
+            <div>
+                <label for="password">Password: </label>
+                <input type="text" id="password" />
+            </div>
+            <div>
+	            <a href="#" id="register">Register</a>
+                <a href="#" id="login">Log In</a>
+            </div>
+        </div>
+	</script>
+
+    <script type="x-mustache-template" id="open-game-template">
+        <div class="open-game" id="game-{{id}}">
+            <strong class="game-title">Game "{{title}}"</strong>
+            <strong class="game-creator"> created by: {{creator}}</strong>
+            <a href="#" id="join-{{id}}">Join</a>
+        </div>
+	</script>
+
+    <script type="x-mustache-template" id="active-game-template">
+        <div class="active-game" data-number="{{id}}">
+            <a href="#" id="join-{{id}}">Show</a>
+            <strong class="game-title">Game "{{title}}"</strong>
+            <strong class="game-creator"> created by: {{creator}}</strong>
+            <strong class="game-stutus"> - {{status}}</strong>
+        </div>
+	</script>
+
+    <script type="x-mustache-template" id="battle-field-template">
+        <div class="battle-field" id="game-{{gameId}}" />
+        <div>
+            <strong class="game-title">Game "{{title}}"</strong>
+            <strong class="game-turn"> Turn {{turn}}th</strong>
+            <strong class="game-player-inturn"> In turn {{inTurn}}</strong>
+        </div>
+        <div>
+        {{#red}}
+            <strong class="game-red">Red Player: {{nickname}}</strong>
+        {{/red}}
+        {{#blue}}
+            <strong class="game-blue">Blue Player: {{nickname}}</strong>
+        {{/blue}}
+        </div>
+	</script>
+
+    <script type="x-mustache-template" id="units-template">
+        <div class="units-{{owner}}" data-number="{{id}}">
+            <div>
+                <img src="{{url}}" width="50" height="50" />
+            </div>
+            <div>
+                <strong class="unit-hitpoints">{{hitPoints}} </strong>
+                <strong class="unit-attack">{{attack}} </strong>
+                <strong class="unit-armor">{{armor}} </strong>
+                <strong class="unit-mode">{{mode}}</strong>
+            </div>
+        </div>
+	</script>
+
+    <div id="content"></div>
+</body>
+</html>

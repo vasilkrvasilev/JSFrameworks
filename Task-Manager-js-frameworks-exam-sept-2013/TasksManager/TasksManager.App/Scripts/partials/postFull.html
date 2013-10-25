@@ -1,0 +1,41 @@
+﻿<h1>Post</h1>
+<ul data-template="postFull-template" data-bind="source: post">
+</ul>
+
+<script type="text/x-kendo-template" id="postFull-template">
+    <div>
+        <div>
+            <strong>Title: </strong>
+            <span>#= title # </span>
+            <strong>Creator: </strong>
+            <span>#= creator # </span>
+            <span>Created on: </span>
+            <span>#= createdOn # </span>
+            <span>Number of comments: </span>
+            <span>#= numberComments # </span>
+            <a href="index.html\#/post/#= id #/comment">Comment</a>
+        </div>
+        <div>
+            <strong>Tags: </strong>
+            # for (var i = 0; i < tags.length; i++) { #
+                <span>#= tags[i] # </span>
+            # } #
+        </div>
+        <div>
+            <strong>Content: </strong>
+            <span>#= content # </span>
+        </div>
+        <div>
+        # for (var i = 0; i < comments.length; i++) { #
+            <div>
+            <strong>Text: </strong>
+            <span>#= comments[i].text # </span>
+            <strong>Creator: </strong>
+            <span>#= comments[i].creator # </span>
+            <span>Created on: </span>
+            <span>#= comments[i].createdOn # </span>
+            </div>
+        # } #
+        </div>
+    </div>
+</script>

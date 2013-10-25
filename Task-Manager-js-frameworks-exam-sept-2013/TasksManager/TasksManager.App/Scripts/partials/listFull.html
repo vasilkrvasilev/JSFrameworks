@@ -1,0 +1,24 @@
+﻿<h1>List</h1>
+<ul data-template="listFull-template" data-bind="source: list">
+</ul>
+
+<script type="text/x-kendo-template" id="listFull-template">
+    <div>
+        <div>
+            <strong>Title: </strong>
+            <span>#= title # </span>
+            <a href="index.html\#/todo-add/#= id #">Add task</a>
+        </div>
+        <div>
+        # for (var i = 0; i < todos.length; i++) { #
+            <div>
+            <strong>Text: </strong>
+            <span>#= todos[i].text # </span>
+            <strong>Is Done: </strong>
+            <span>#= todos[i].isDone.ToString() # </span>
+            <button data-bind="click: change" data-todoId="#= todos[i].id #">Change State</button>
+            </div>
+        # } #
+        </div>
+    </div>
+</script>

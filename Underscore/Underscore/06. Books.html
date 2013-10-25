@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<script src="../Scripts/class.js"></script>
+	<script src="../Scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="content">
+    <label for="title">Title : </label>
+    <input type="text" id="title" />
+    <label for="author">Author: </label>
+    <input type="text" id="author" />
+	<a href="#" id="send" onclick="onSendBottonClick()">Send</a>
+    <a href="#" id="calc" onclick="onCalcBottonClick()">Calc</a>
+	<div id="result"></div>
+    </div>
+	<script>
+	    var Book = Class.create({
+	        init: function (title, author) {
+	            this.title = title;
+	            this.author = author;
+	        },
+	        toString: function () {
+	            return this.title + " " + this.author;
+	        }
+	    });
+
+	    var books = [];
+
+	    function onSendBottonClick() {
+
+	        var title = document.getElementById("title").value;
+	        var author = document.getElementById("author").value;
+	        var newBook = new Book(title, author);
+	        books.push(newBook);
+	    }
+
+	    function onCalcBottonClick() {
+
+	        var grouped = _.groupBy(books, 'author');
+	        var counted = _.sortBy(grouped, function (item) {
+	            return item.length;
+	        });
+
+	        var author = _.last(counted)[0].author;
+
+	        console.log(author);
+	    }
+	</script>
+</body>
+</html>

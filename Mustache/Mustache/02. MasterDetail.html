@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/mustache.js"></script>
+    <script src="Scripts/class.js"></script>
+    <script src="Scripts/table-view.js"></script>
+    <script src="Scripts/jquery-2.0.3.js"></script>
+</head>
+<body>
+    <script type="x-mustache-template" id="person-template">
+        <table width="200">
+			<tr><td colspan="2">{{fname}} {{lname}}</td></tr>
+			{{#marks}}
+				<tr><td width="90%">{{subject}}:</td><td width="10%">{{score}}</td></tr>
+			{{/marks}}
+			{{^marks}}
+				<tr><td colspan="2" bgcolor="#ee1133">
+					No marks, yet
+				</td></tr>
+			{{/marks}}
+        </table>
+	</script>
+
+    <script type="x-mustache-template" id="students-template">
+        <table width="200">
+			<tr>
+                <td width="80%">{{fname}} {{lname}}</td>
+                <td width="20%" bgcolor="#11ee33">
+				    <a href="#" data-number="{{id}}">Show Marks</a>
+			    </td>
+            </tr>
+        </table>
+	</script>
+
+	<div id="content"></div>
+	<script>
+	    var Student = Class.create({
+	        init: function (id, fname, lname, marks) {
+	            this.id = id;
+	            this.fname = fname;
+	            this.lname = lname;
+	            this.marks = marks;
+	        },
+	        fullname: function () {
+	            return this.fname + " " + this.lname;
+	        }
+	    });
+
+	    var Mark = Class.create({
+	        init: function (subject, score) {
+	            this.subject = subject;
+	            this.score = score;
+	        }
+	    });
+
+	    //var people = [
+		//	new Student(0, "Doncho", "Minkov", [new Mark("Math", 4)]),
+		//	new Student(1, "Nikolay", "Kostov"),
+		//	new Student(2, "Ivaylo", "Kendov", [new Mark("OOP", 4), new Mark("C#", 6)]),
+		//	new Student(3, "Svetlin", "Nakov", [new Mark("Unit Testing", 5), new Mark("WPF", 6), new Mark("JavaScript", 6)]),
+		//	new Student(4, "Asya", "Georgieva"),
+		//	new Student(5, "Georgi", "Georgiev")
+	    //];
+
+	    $.ajax({
+	        url: "http://localhost:51814/api/values",
+	        contentType: "application/json",
+            type: "GET",
+	        success: renderPeople,
+	        error: function () { console.log("error"); }
+	    });
+
+	    function renderPeople(people) {
+
+	        var tableTemplate = Mustache.compile(document.getElementById("students-template").innerHTML);
+	        var tableView = controls.getTableView(people, 2);
+
+	        var tableViewHtml = tableView.render(tableTemplate);
+
+	        document.getElementById("content").innerHTML = tableViewHtml;
+
+	        function handler(event) {
+	            var $target = $(event.target);
+	            if ($target.is("a")) {
+	                var number = $target.data("number");
+	                var $table = $target.closest('table');
+	                var $cell = $table.closest('td');
+	                $cell.html("");
+
+	                var personTemplate = Mustache.compile(document.getElementById("person-template").innerHTML);
+	                var personView = controls.getTableView([people[number]], 1);
+
+	                var personViewHtml = personView.render(personTemplate);
+
+	                $cell.html(personViewHtml);
+	            }
+	        }
+
+	        $("a").click(handler);
+	    }
+	</script>
+</body>
+</html>

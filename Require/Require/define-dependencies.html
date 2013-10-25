@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<script src="Scripts/libs/require.js" data-main="Scripts/app-config"></script>
+    <style>
+        span.button {
+            float: right;
+            margin-left: 10px;
+        }
+        span.no {
+            background-color: #ee1133;
+        }
+        td {
+            padding: 5px;
+        }
+        a {
+            background-color: #11ee33;
+        }
+    </style>
+</head>
+<body>
+	<script type="x-mustache-template" id="students-template">
+        <div>
+            <span>{{name}} from {{grade}} grade</span>
+            <span class="button">
+				<a href="#" data-number="{{id}}">Show Marks</a>
+			</span>
+        </div>
+	</script>
+
+    <script type="x-mustache-template" id="person-template">
+        <div>
+            <span>{{subject}}:</span><span class="button">{{score}}</span>
+        </div>
+	</script>
+
+    <script type="x-mustache-template" id="noperson-template">
+        <div>
+			<span class="no">
+				No marks, yet
+			</span>
+        </div>
+	</script>
+
+    <div id="content"></div>
+</body>
+</html>

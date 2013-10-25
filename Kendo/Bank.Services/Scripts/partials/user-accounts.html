@@ -1,0 +1,20 @@
+﻿<h1>Bank</h1>
+<ul data-template="userAccounts-template" data-bind="source: user">
+</ul>
+
+<script type="text/x-kendo-template" id="userAccounts-template">
+    <div>
+        <div>
+            <strong>Username: </strong>
+            <span>#= username # </span>
+        </div>
+        <div>
+            <strong>Accounts: </strong>
+            # for (var i = 0; i < accounts.length; i++) { #
+                <strong>Balance: </strong>
+                <span>#= accounts[i].balance # </span>
+                <a href="index.html\#/account/logs/#= accounts[i].id #">Details</a>
+            # } #
+        </div>
+    </div>
+</script>
